@@ -1,0 +1,272 @@
+<style>
+    .bor-box {
+        height: 90px;
+        margin: 15px 0;
+        border: 1px solid #e2e2e2;
+        background-color: #fff;
+    }
+
+    .f_sidebar {
+        background-color: #fff;
+    }
+
+    .min_height_sb {
+        border-top: none;
+    }
+
+    .block-layered-nav {
+        width: 100%;
+    }
+
+    .block-content-state {
+        position: relative;
+    }
+
+    .block-content-state .currently {
+        padding: 5px 0 0 0;
+    }
+
+    .currently {
+        display: -webkit-box;
+    }
+
+    .blockSubtitle {
+        padding: 0 10px 8px 9px;
+        margin: 0;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: left;
+        display: inline-block;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .block-content-state .currently ul li {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 5px 5px;
+    }
+
+    .block-layered-nav .currently ul li .actions {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .narrow-by-list {
+        text-align: left;
+        padding: 10px;
+    }
+
+    .dlmb0 {
+        margin-bottom: 0px !important;
+    }
+
+    .listing-filter-expandBox {
+        display: inline-block;
+        margin-right: 12px;
+        position: relative;
+        width: 170px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .listing-filter-expandBox:hover .ddShowing {
+        max-height: 200px !important;
+        top: 40px;
+    }
+
+    .ddShowing {
+        position: absolute;
+        left: 0;
+        background-color: #fff;
+        min-width: 210px;
+        max-width: 250px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        z-index: 99;
+        top: 40px;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+        text-align: left;
+        height: 150px;
+    }
+
+    .block-layered-nav dt {
+        display: block;
+        color: #fff;
+        padding: 8px 10px 6px 10px;
+        text-transform: uppercase;
+        background-color: #9b9b9b;
+        white-space: nowrap;
+        letter-spacing: .1em;
+        position: relative;
+        font-size: 13px;
+    }
+
+    .block-layered-nav dd {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .f-width {
+        width: 190px;
+    }
+
+    .d-filter-css-checkboxes {
+        border: 1px solid #9b9b9b !important;
+        position: relative;
+    }
+
+    .m-scrollable-filter {
+        overflow-x: hidden !important;
+        overflow-y: scroll !important;
+        padding: 2px 0 2px 5px;
+        background: rgba(255, 255, 255, 0.5);
+        height: 150px;
+        scrollbar-width: thin;
+        margin-bottom: 0px;
+    }
+
+    div#seeMoreFilterPopup {
+        display: none;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(85, 85, 85, .7);
+        text-align: center;
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 99999999999999999999999999;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+</style>
+
+<!-- 条件筛选 -->
+<div class="row">
+    <div class="bor-box">
+        <div class=" listing-margin-top">
+            <div class="col-left sidebar min_height_sb f_sidebar">
+                <div class="eblock block-layered-nav">
+                    <div class="block-content">
+                        <div class="block-content-state">
+                            <div class="currently">
+                                <p class="blockSubtitle">筛选：</p>
+                                <ul>
+                                    <li>
+                                        <div class="actions"><a id="manadev-clearall-link" class="color-red"
+                                                href="https://www.ornatejewels.com/american-diamond-rings">Clear All</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block-content-state" style="float: right;top: -26px;right: 120px;">
+                            <div class="currently">
+                                <p class="blockSubtitle">排序：</p>
+                            </div>
+                        </div>
+                        <dl class="narrow-by-list dlmb0" id="narrow-by-list-0">
+                            <div class="listing-filter-expandBox  ">
+                                <dt class="fil_Popup" data-id="m_price_filter"><span class="att-label"> 价格 </span>
+                                </dt>
+                                <dd class="ddShowing popupShowing">
+                                    <ol class="d-filter-css-checkboxes m-scrollable-filter ">
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_64" value="64">
+                                                Below Rs.1000
+                                            </label></li>
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_65" value="65">
+                                                Rs.1000 - Rs.1500
+                                            </label></li>
+                                    </ol>
+                                </dd>
+                            </div>
+                            <!-- <div class="listing-filter-expandBox  ">
+                                <dt class="fil_Popup" data-id="m_price_filter"><span class="att-label"> Ring Size
+                                    </span></dt>
+                                <dd class="ddShowing popupShowing">
+                                    <ol class="d-filter-css-checkboxes m-scrollable-filter ">
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_72" value="72">
+                                                10
+                                            </label></li>
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_73" value="73">
+                                                11
+                                            </label></li>
+                                    </ol>
+                                </dd>
+                            </div>
+                            <div class="listing-filter-expandBox  ">
+                                <dt class="fil_Popup" data-id="m_price_filter"><span class="att-label"> Ring Type
+                                    </span></dt>
+                                <dd class="ddShowing popupShowing">
+                                    <ol class="d-filter-css-checkboxes m-scrollable-filter">
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_58" value="58">
+                                                Band Ring
+                                            </label></li>
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_63" value="63">
+                                                Cocktail Ring
+                                            </label></li>
+                                    </ol>
+                                </dd>
+                            </div>
+                            <div class="listing-filter-expandBox  ">
+                                <dt class="fil_Popup" data-id="m_price_filter"><span class="att-label"> Occasion </span>
+                                </dt>
+                                <dd class="ddShowing popupShowing">
+                                    <ol class="d-filter-css-checkboxes m-scrollable-filter ">
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_84" value="84">
+                                                Anniversary Gifts
+                                            </label></li>
+                                        <li><label><input type="checkbox" name="filter[]" id="filter_85" value="85">
+                                                Gift For Girlfriend
+                                            </label></li>
+                                    </ol>
+                                </dd>
+                            </div> -->
+                            <div id="seeMoreFilterPopup" style="z-index: 99999;display: none;">
+                                <div class="filter-popup-wrap">
+                                    <div class=""><span style="float: left;padding: 10px;">Filters</span><span
+                                            class="close-wrap" id="closepopup">X</span></div>
+                                    <div class="filters-content"></div>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                <div class="eblock block-layered-nav">
+                    <div class="block-content">
+                        <div class="listing-filter-expandBox" style="float: right;margin-top: -44px;">
+                            <dt class="fil_Popup" data-id="m_stone_shape_filter"><span class="att-label"
+                                    style="vertical-align: text-bottom;"> 默认 </span></dt>
+                            <dd class="ddShowing popupShowing">
+                                <ol class="d-filter-css-checkboxes m-scrollable-filter s-f-width">
+                                    <li><a class="m-checkbox-unchecked"
+                                            href="index.php?route=product/category&amp;path=112&amp;sort=p.sort_order&amp;order=ASC">默认</a>
+                                    </li>
+                                    <li><a class="m-checkbox-unchecked"
+                                            href="index.php?route=product/category&amp;path=112&amp;sort=p.price&amp;order=ASC">价格
+                                            (低 &gt; 高)</a></li>
+                                    <li><a class="m-checkbox-unchecked"
+                                            href="index.php?route=product/category&amp;path=112&amp;sort=p.price&amp;order=DESC">价格
+                                            (高 &gt; Low)</a></li>
+                                    <li><a class="m-checkbox-unchecked"
+                                            href="index.php?route=product/category&amp;path=112&amp;sort=rating&amp;order=DESC">估价
+                                            (最高)</a></li>
+                                    <li><a class="m-checkbox-unchecked"
+                                            href="index.php?route=product/category&amp;path=112&amp;sort=rating&amp;order=ASC">估价
+                                            (最低)</a></li>
+                                </ol>
+                            </dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

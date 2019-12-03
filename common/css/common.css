@@ -1,0 +1,58 @@
+.web {
+    background-color: #eee;
+}
+
+.w {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+/* 行样式 */
+
+.row {
+    margin: 0 -15px;
+}
+
+.f-l {
+    float: left;
+}
+
+.f-r {
+    float: right;
+}
+
+img {
+    max-width: 100%;
+}
+
+.boostKeyframe {
+    animation: 0s ease 0s 1 normal none running none;
+}
+
+.disflex-spbetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.unbold {
+    font-weight: 400!important;
+}
+
+.nw {
+    white-space: nowrap;
+}
+
+.discount {
+    color: #a1a0a0;
+    text-decoration: line-through;
+}
+
+.nav-content-box {
+    padding: 10px 10px;
+    width: 66%;
+}
+
+.nav-content-box+.nav-content-box {
+    width: 50%;
+}

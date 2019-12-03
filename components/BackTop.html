@@ -1,0 +1,44 @@
+<style>
+    /* 返回顶部 */
+    .back-top {
+        position: fixed;
+        right: 15px;
+        bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border-radius: 50px;
+        color: #1E9FFF;
+        box-shadow: 0 0 5px #bbb;
+    }
+
+    .back-top i {
+        display: block;
+        margin: 20px auto;
+        font-size: 25px;
+        color: #666;
+    }
+
+    .back-top:hover {
+        background-color: #eee;
+    }
+
+    .back-top:hover i {
+        color: #1E9FFF;
+    }
+</style>
+<div class="back-top" id="backTop">
+    <i class="layui-icon layui-icon-up"></i>
+</div>
+<script>
+    // 返回顶部
+    let scroH = $(document).scrollTop()
+
+    $('#backTop').click(() => {
+        $('body,html').animate({ scrollTop: 0 }, 500)
+    })
+
+</script>

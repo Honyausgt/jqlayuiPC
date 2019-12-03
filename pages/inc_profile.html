@@ -1,0 +1,61 @@
+<!-- 公司简介 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../utils/rem.js"></script>
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+
+    <style>
+        section {
+            height: 500px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web w">
+
+        <!-- 顶部topc -->
+        <header class="header">
+        </header>
+
+        <!-- 头部导航 -->
+        <div class="head-nav" id="headNav">
+            <!-- <script src="./components/TopNav.js"></script> -->
+        </div>
+
+        <section>占位</section>
+
+        <!-- 底部 -->
+        <footer class="footer">
+
+        </footer>
+        <!-- 返回顶部 -->
+        <div class="backtop-box"></div>
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./lib/layui/layui.all.js"></script>
+
+    <script>
+        // 顶部导航栏
+        $(".head-nav").load("../components/TopNav.html")
+        // 返回顶部
+        $(".backtop-box").load("../components/BackTop.html")
+        // 头部公共组件
+        $(".header").load("../components/Header.html")
+        // 底部公共组件
+        $(".footer").load("../components/Footer.html")
+    </script>
+
+</body>
+
+</html>

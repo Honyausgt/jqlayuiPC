@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" value="">
+</body>
+<script>
+    let dateVal = document.querySelector("input")
+    dateVal.addEventListener('change', () => {
+        // 正则表达式替换-为/ 因为new Date 只支持/格式
+        let formateDate = dateVal.value.replace(/-/g, '/'),
+            date = new Date(formateDate)
+        console.log(date.getTime());
+    })
+
+</script>
+
+</html>

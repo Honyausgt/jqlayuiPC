@@ -1,0 +1,261 @@
+<style>
+    /* 修改layui样式 */
+    .layui-nav-child {
+        min-width: 1000px;
+    }
+
+    .layui-icon-search {
+        font-size: 24px;
+    }
+
+    .top-nav-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+        box-shadow: 0 0 5px #000;
+    }
+
+    .nav-content-box li {
+        padding: 10px 0;
+        float: left;
+        width: 33.33%;
+    }
+
+    .top-nav-box .top-options-box {
+        padding: 15px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        background-color: #eee;
+        border-top: 1px solid rgb(184, 182, 182);
+    }
+
+    .top-options-box .logo {
+        float: left;
+    }
+
+    .top-options-box .options {
+        padding: 0 50px;
+        float: right;
+    }
+
+    .options .m-sign {
+        font-size: 20px;
+        display: flex;
+    }
+
+    .options .m-sign li {
+        margin: 0 15px;
+    }
+
+    .m-sign .search-btn {
+        cursor: pointer;
+        vertical-align: middle;
+    }
+
+    .m-sign .ipt-search {
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 1px solid #1e9fff;
+    }
+</style>
+<!-- 导航栏 -->
+<div class="layui-row top-nav-box">
+    <div class="top-options-box">
+        <!-- 顶部logo -->
+        <div class="logo"><a href="https://www.ornatejewels.com/"><img src="../imgs/logo.png"
+                    alt="Silver Jewellery"></a>
+        </div>
+        <!-- 顶部操作栏 -->
+        <div class="options">
+            <ul class="m-sign">
+                <li><a href="login">Sign In</a></li>
+                <li><a href="register">Register</a></li>
+                <!-- 搜索 -->
+                <li>
+                    <a class="search-btn" id="formButton">
+                        <i class="layui-icon layui-icon-search" aria-hidden="true"></i>
+                    </a>
+                    <button style="display:none;" value="search">Search</button>
+                    <input class="ipt-search" id="topsearch" type="text" name="search" placeholder="商品名/店铺名/卖家名"
+                        autocomplete="off">
+                    <!-- <input class="layui-input" type="text" name="search" lay-verify="required" placeholder="商品名/店铺名/卖家名" autocomplete="off"> -->
+                    <ul class="dropdown-menu"></ul>
+                    <div class="live-search" style="display: none;">
+                        <ul> </ul>
+                        <div class="result-text"></div>
+                    </div><button style="display:none;">Search</button>
+                </li>
+                <!-- 购物车 -->
+                <!-- <li>
+                        <div id="cart"><span class="cart">
+                                <a href="cart" id="cart-total"><span class="icon-cart2"></span><span
+                                        class="item-no">0</span></a></span></div>
+                    </li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部导航菜单 -->
+    <ul class="layui-nav layui-bg-blue top-nav" id="topNavBox" lay-filter="">
+        <!-- <li class="layui-nav-item"><a href="../index.html">首页</a></li>
+        <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+        <li class="layui-nav-item"><a href="">大数据</a></li> -->
+        <!-- <li class="layui-nav-item">
+            <a href="javascript:;">解决方案</a>
+            <div class="layui-nav-child dropdown boostKeyframe ">
+                <ul class="disflex-spbetween">
+                    <li class="nav-content-box"><a href="https://www.ornatejewels.com/rings" class="see-all">Show All
+                            Rings</a>
+                        <ul class="boostKeyframe">
+                            <li><a class="new1" href="https://www.ornatejewels.com/925-sterling-silver-rings">
+                                    925 Sterling Silver Rings </a></li>
+                            <li><a class="new1" href="https://www.ornatejewels.com/american-diamond-rings">
+                                    American Diamond Rings </a></li>
+                            <li><a class="new1" href="https://www.ornatejewels.com/pearl-rings">
+                                    Pearl Rings </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-content-box"><a href="https://www.ornatejewels.com/rings"><img class="lazy loaded"
+                                src="https://www.ornatejewels.com/image/cache/webp/catalog/Rings1-391x269.webp"
+                                data-src="https://www.ornatejewels.com/image/cache/webp/catalog/Rings1-391x269.webp"
+                                alt="Rings" data-was-processed="true"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li> -->
+        <!-- <li class="layui-nav-item"><a href="">社区</a></li> -->
+    </ul>
+</div>
+
+<!-- 顶部导航栏模板结构 -->
+<script id="topNavTpl" type="text/template">
+    {{#  layui.each(d.list, function(index, item){ }}
+                <li class="layui-nav-item">
+                    <a href="javascript:;">{{ item.cname }}</a>
+                    <div class="layui-nav-child dropdown boostKeyframe ">
+                        <ul class="disflex-spbetween">
+                            <li class="nav-content-box"><a href="https://www.ornatejewels.com/rings" class="see-all">查看全部</a>
+                                <ul class="boostKeyframe">
+                                    {{# layui.each(item.child , function(idx, itm){ }}
+                                        <li><a class="new1" href="https://www.ornatejewels.com/925-sterling-silver-rings">
+                                                {{= itm.cname }} </a></li>
+                                    {{#  }); }}
+                                </ul>
+                            </li>
+                            <li class="nav-content-box"><a href="https://www.ornatejewels.com/rings"><img class="lazy loaded"
+                                        src="{{ item.parent_pic }}"
+                                        data-src="{{ item.parent_pic }}"
+                                        alt="{{ item.cname }}" data-was-processed="true"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+            
+        {{#  }); }}
+
+
+  </script>
+
+<!-- 引入layui js -->
+<script src="../lib/layui/layui.all.js"></script>
+<!-- <script src="../req/api.js"></script> -->
+
+<script>
+        var isSlideDownFlag = false,
+            isSlideUpFlag = false
+
+        // // 调用菜单分类接口获取顶部菜单数据
+        // getTopNavMenu().then(res => {
+        //     // laytpl渲染模板
+        //     var getTopNavTpl = topNavTpl.innerHTML,
+        //         view = document.getElementById('topNavBox');
+        //     laytpl(getTopNavTpl).render({ list: res }, function (html) {
+        //         view.innerHTML = html;
+        //     });
+
+        //     // 引入layui.all.js
+        //     let layjs = document.createElement('script')
+        //     layjs.setAttribute('src', '../lib/layui/layui.all.js')
+        //     document.body.appendChild(layjs)
+
+        // })
+
+        $.ajax({
+            url: 'http://192.168.3.148:8080/type/getmenu',
+            type: 'post',
+            data: {},
+            success(res) {
+                // laytpl渲染模板
+                var getTopNavTpl = topNavTpl.innerHTML,
+                    view = document.getElementById('topNavBox');
+                laytpl(getTopNavTpl).render({ list: res }, function (html) {
+                    view.innerHTML = html;
+                });
+
+                // 引入layui.all.js
+                let layjs = document.createElement('script')
+                layjs.setAttribute('src', '../lib/layui/layui.all.js')
+                document.body.appendChild(layjs)
+
+            }
+        })
+
+
+
+        // 顶部导航栏固定
+        let topNav = $(".top-nav-box"),
+            curH = topNav.offset().top
+
+        if (curH <= $(document).scrollTop()) {
+            topNav.addClass("top-nav-fixed")
+        } else {
+            $('#backTop').hide()
+        }
+
+        var beforeScrollTop = $(document).scrollTop();
+
+        $(window).scroll(() => {
+            let scrollH = $(document).scrollTop()
+            var afterScrollTop = $(document).scrollTop();
+            var delta = afterScrollTop - beforeScrollTop;
+
+
+            if (curH <= scrollH) {
+                topNav.addClass("top-nav-fixed")
+                $('#backTop').show(500)
+
+                if (delta > 0) {        // 下滑
+                    if (afterScrollTop > 0) {
+                        if (!isSlideDownFlag) { // 第一次和上滑过后才允许下滑动画执行
+                            topNav.animate({ marginTop: '-150px' }, 800)
+                            isSlideUpFlag = false
+                            isSlideDownFlag = true
+                        }
+                    }
+                } else if (delta < 0) { // 上滑
+                    if (!isSlideUpFlag) {
+                        topNav.animate({ marginTop: '0px' }, 800)
+                        isSlideDownFlag = false
+                        isSlideUpFlag = true
+                    }
+                }
+                beforeScrollTop = afterScrollTop;   // 本次滑动结束的位置 即 下次滑动开始的位置
+
+            } else {
+                topNav.removeClass("top-nav-fixed")
+                $('#backTop').hide(500)
+            }
+
+
+        })
+
+        // 返回顶部
+        $('#backTop').click(() => {
+            $('body,html').animate({ scrollTop: 0 }, 500)
+        })
+</script>

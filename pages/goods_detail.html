@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品详情</title>
+    <script src="../utils/rem.js"></script>
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../lib/exzoom/jquery.exzoom.css">
+    <style>
+        .fill-box {
+            height: 145px;
+        }
+
+        .detail-box {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            padding: 0 50px;
+        }
+
+        .detail-box .zoom-gallery {
+            width: 40%;
+        }
+
+        .detail-box .goods-details-info {
+            width: 50%;
+            height: 500px;
+            padding: 20px;
+            border: 1px solid rgb(0, 0, 0, 0.16);
+            background-color: rgba(18, 215, 230, 0.253);
+        }
+
+        .goods-details-info .goods-attr {
+            margin: 15px 0;
+        }
+
+        .goods-details-info .proheading {
+            font-size: 0.08rem;
+            color: #000;
+            padding-bottom: 3px;
+            line-height: 26px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .headding-user_star {
+            width: 200px;
+            display: inline-block;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .headding-ratings .headding-user_star {
+            width: auto;
+            margin: 0 8px 0 4px;
+        }
+
+        .headding-star-color {
+            font-size: 14px;
+            padding-right: 4px;
+        }
+
+        .headding-ratings .rating-links {
+            display: inline-block;
+            margin-right: 8px;
+            color: #424242;
+            margin-top: -2px;
+        }
+
+        .headding-separator {
+            padding: 0px 5px;
+        }
+
+        .pro-head {
+            display: inline-block;
+            font-weight: 600;
+            color: #403838;
+            line-height: 20px;
+            font-size: 15px;
+        }
+
+        .product-attr .counter2 {
+            background-color: #9b9b9b;
+            vertical-align: inherit;
+            line-height: 16px;
+            display: inline-table;
+            padding: 0 2px;
+            position: absolute;
+            font-size: 12px;
+            top: 2px;
+            float: right;
+            color: #fff;
+            left: 100px;
+        }
+
+        .counter2 .in2:before {
+            content: ' ';
+            position: absolute;
+            color: #9b9b9b;
+            left: -9px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-right: 9px solid #9b9b9b;
+            border-bottom: 8px solid transparent;
+        }
+
+        .goods-select-attr .colorbox {
+            padding: 4px;
+            border-radius: 50%;
+            background: #e7f6fc;
+        }
+
+        .EM-color {
+            background-color: #00682d;
+        }
+
+        .CZ-color {
+            background-color: #e0dde4;
+        }
+
+        .RB-color {
+            background-color: #ae0110;
+        }
+
+        .RB-color {
+            background-color: #ae0110;
+        }
+
+        .colorbox .colorboxin {
+            padding: 13px;
+            border-radius: 50%;
+            /* min-width: 27px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web w">
+        <!-- 头部导航 -->
+        <div class="head-nav" id="headNav">
+        </div>
+
+        <!-- 填充盒子 -->
+        <div class="fill-box"></div>
+
+        <!-- 详情页主体内容 -->
+        <div class="detail-box">
+            <!-- 左侧商品放大镜图 -->
+            <div class="zoom-gallery">
+                <div class="exzoom" id="exzoom">
+                    <!--大图区域-->
+                    <div class="exzoom_img_box">
+                        <ul class='exzoom_img_ul'>
+                            <li><img src="../imgs/photos/img01.jpg" /></li>
+                            <li><img src="../imgs/photos/img02.jpg" /></li>
+                            <li><img src="../imgs/photos/img03.jpg" /></li>
+                            <li><img src="../imgs/photos/img04.jpg" /></li>
+                            <li><img src="../imgs/photos/img05.jpg" /></li>
+                            <li><img src="../imgs/photos/img06.jpg" /></li>
+                            <li><img src="../imgs/photos/img07.jpg" /></li>
+                            <li><img src="../imgs/photos/img08.jpg" /></li>
+                        </ul>
+                    </div>
+                    <!--缩略图导航-->
+                    <div class="exzoom_nav"></div>
+                    <!--控制按钮-->
+                    <p class="exzoom_btn">
+                        <a href="javascript:void(0);" class="exzoom_prev_btn">
+                            &lt; </a> <a href="javascript:void(0);" class="exzoom_next_btn"> &gt;
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- 右侧商品介绍 -->
+            <div class="goods-details-info">
+                <h1 class="proheading">商品介绍</h1>
+                <div class="headding-ratings">
+                    <div class="review-stars headding-user_star"><i
+                            class="layui-icon layui-icon-rate-solid headding-star-color" aria-hidden="true"></i><i
+                            class="layui-icon layui-icon-rate-solid headding-star-color" aria-hidden="true"></i><i
+                            class="layui-icon layui-icon-rate-solid headding-star-color" aria-hidden="true"></i><i
+                            class="layui-icon layui-icon-rate-solid headding-star-color" aria-hidden="true"></i><i
+                            class="layui-icon layui-icon-rate-solid headding-star-color" aria-hidden="true"></i></div>
+                    <p class="rating-links"><a href="javascript:void(0)" id="focusOnReviewArea"
+                            data-href="#reviewViewerDiv">1 浏览
+                        </a><span class="headding-separator"> | </span><a class="headding-pointer"
+                            id="focusOnAskquistionArea" href="javascript:void(0)" data-href="#reviewViewerDiv">咨询</a>
+                    </p>
+                </div>
+                <div class="good-attr-info">
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md1 pro-head nw">
+                            原价：
+                        </div>
+                        <div class="layui-col-md9 product-attr discount">
+                            ￥2999
+                            <span class="counter2">
+                                <div class="in2 unbold">&nbsp;- 40% &nbsp;</div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md1 pro-head nw">
+                            现价：
+                        </div>
+                        <div class="layui-col-md9 product-attr">
+                            ￥1999
+                        </div>
+                    </div>
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md1 pro-head nw">
+                            现价：
+                        </div>
+                        <div class="layui-col-md9 product-attr">
+                            ￥1999
+                        </div>
+                    </div>
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md2 pro-head nw">
+                            商品名称：
+                        </div>
+                        <div class="layui-col-md9 product-attr">
+                            10kl高艳冷翡翠
+                        </div>
+                    </div>
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md2 pro-head nw">
+                            商品类别：
+                        </div>
+                        <div class="layui-col-md9 product-attr">
+                            珠宝
+                        </div>
+                    </div>
+                    <div class="layui-row goods-attr">
+                        <div class="layui-col-md2 pro-head nw">
+                            商品编号：
+                        </div>
+                        <div class="layui-col-md9 product-attr">
+                            3345972123
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="layui-bg-blue">
+                <!-- 商品可选属性 -->
+                <div class="goods-select-attr">
+                    <div class="layui-row">
+                        <div class="layui-col-md1 pro-head">颜色：</div>
+                        <div class="layui-col-md9"><span class="view__more__pd__article__label unbold"
+                                style="margin-left: -3px;display:inline-flex;;"><a
+                                    href="emerald-solitaire-pendant-with-earring-925-silver.html">
+                                    <div class="colorbox">
+                                        <div class="colorboxin EM-color"></div>
+                                    </div>
+                                </a><a href="american-diamond-solitaire-pendant-with-earring-925-silver.html">
+                                    <div class="colorbox">
+                                        <div class="colorboxin CZ-color"></div>
+                                    </div>
+                                </a><a href="ruby-solitaire-pendant-with-earring-925-silver.html">
+                                    <div class="colorbox">
+                                        <div class="colorboxin RB-color"></div>
+                                    </div>
+                                </a><a href="created-blue-sapphire-solitaire-pendant-with-earring-925-silver.html">
+                                    <div class="colorbox">
+                                        <div class="colorboxin BS-color"></div>
+                                    </div>
+                                </a></span></div>
+                    </div>
+                    <div class="layui-row">
+                        <div class=" pro-head">内存：</div>
+                        <div class="">
+                            <div class="select-item">64G</div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="layui-bg-blue">
+                <div class="layui-row goods-buy">
+                    <button type="button" class="layui-btn layui-btn-primary">添加到购物车</button>
+                    <button type="button" class="layui-btn">立即购买</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <footer class="footer"></footer>
+
+        <!-- 返回顶部 -->
+        <div class="backtop-box"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../utils/rem.js"></script>
+    <script src="../lib/layui/layui.all.js"></script>
+    <script src="../lib/exzoom/jquery.exzoom.js"></script>
+    <script src="../req/api.js"></script>
+
+    <script>
+        // $.ajax({
+        //     url: 'http://192.168.3.148:8080/type/getmenu',
+        //     type: 'post',
+        //     success(res) {
+        //         console.log(res);
+        //     }
+        // })
+        // 顶部导航栏
+        $(".head-nav").load("../components/TopNav.html")
+        // 返回顶部
+        $(".backtop-box").load("../components/BackTop.html")
+        // 底部公共组件
+        $(".footer").load("../components/Footer.html")
+
+    </script>
+    <script>
+        // exzoom 配置参数
+        // defaults = {
+        //     "navWidth": 60,//列表每个宽度,该版本中请把宽高填写成一样
+        //     "navHeight": 60,//列表每个高度,该版本中请把宽高填写成一样
+        //     "navItemNum": 5,//列表显示个数
+        //     "navItemMargin": 7,//列表间隔
+        //     "navBorder": 1,//列表边框，没有边框填写0，边框在css中修改
+        //     "autoPlay": false,//是否自动播放
+        //     "autoPlayTimeout": 2000,//播放间隔时间
+        // };        
+        // 初始化exzoom放大镜插件
+        $("#exzoom").exzoom();
+
+
+        // console.log(getIndex());
+        
+
+    </script>
+
+</body>
+
+</html>

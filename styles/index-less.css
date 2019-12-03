@@ -1,0 +1,71 @@
+
+/* layui css调整 */
+.layui-tab-content {
+  min-height: 200px;
+  background-color: #fff;
+  padding: 20px 50px 5px !important;
+}
+/* .top-nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 0 5px #000;
+} */
+.region {
+  padding: 10px;
+}
+.region .region-txt {
+  color: #1e9fff;
+  font-size: 16px;
+  padding: 0 10px;
+}
+.web .row-carousel {
+  width: 108%!important;
+  margin: 0 -4%;
+}
+.web .row-carousel img {
+  width: 100%;
+}
+.peop-item {
+  width: 16%;
+  display: inline-block;
+}
+.peop-item:not(:nth-child(5n)) {
+  margin-right: calc(18% / 4);
+}
+.peop-item .peop-img {
+  padding: 2px;
+  border-radius: 3px;
+  border: #1e9fff solid 1px;
+}
+.peop-item .peop-img .c4-izmir {
+  width: 100%;
+}
+.peop-item .peop-txt {
+  width: 80px;
+  height: 20px;
+  margin: 10px auto 20px;
+  color: #1e9fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+.marquee-box {
+  padding: 20px 50px;
+}
+.marquee-box .marquee-item {
+  display: inline-block;
+  width: 60%;
+  margin-right: calc(10% / 2);
+}
+.marquee-box .marquee-item:nth-child(2) {
+  width: 32%;
+  margin: 0;
+}
+.marquee-box .q-and-a {
+  color: #1e9fff;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgba(30, 158, 255, 0.356);
+}
